@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StARKS.Common.Models
 {
-    public class CourseModel
+    public class CoursModel
     {
 
         public int Code { get; set; }

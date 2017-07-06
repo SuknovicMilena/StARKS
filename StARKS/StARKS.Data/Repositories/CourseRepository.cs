@@ -13,10 +13,10 @@ namespace StARKS.Data.Repositories
         public CourseRepository(StARKSDbContext dbContext) : base(dbContext)
         {
         }
-        public List<CourseModel> GetAllCourseModel()
+        public List<CoursModel> GetAllCourseModel()
         {
 
-            var courses = dbSet.Select(c => new CourseModel
+            var courses = dbSet.Select(c => new CoursModel
             {
                 Code = c.Code,
                 Name = c.Name,

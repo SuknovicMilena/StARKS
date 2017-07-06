@@ -40,6 +40,7 @@ namespace StARKS
 
             services.AddScoped<StudentRepository>();
             services.AddScoped<CourseRepository>();
+            services.AddScoped<MarksForStudentRepository>();
 
             services.AddMvc()
                    .AddJsonOptions(options =>

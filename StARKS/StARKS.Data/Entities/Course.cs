@@ -14,7 +14,7 @@ namespace StARKS.Data.Entities
         public String Name { get; set; }
         public String Description { get; set; }
 
-        [InverseProperty("Course")]
+        [InverseProperty("Cours")]
         public List<MarksForStudent> Marks { get; set; }
     }
 }

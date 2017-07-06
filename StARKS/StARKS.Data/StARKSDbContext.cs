@@ -17,7 +17,7 @@ namespace StARKS.Data
         {
             modelBuilder.Entity<MarksForStudent>(entity =>
             {
-                entity.HasKey(e => new { e.StudentId, e.CourseCode })
+                entity.HasKey(e => new { e.StudentId, e.CoursCode })
                 .HasName("PK_MarksForStudent");
             });
 

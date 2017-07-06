@@ -26,7 +26,7 @@ namespace StARKS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]CourseModel model)
+        public IActionResult Add([FromBody]CoursModel model)
         {
             var course = new Course
             {
@@ -44,7 +44,7 @@ namespace StARKS.Controllers
         }
 
         [HttpPut("{Id}")]
-        public IActionResult Update(int Id, [FromBody]CourseModel model)
+        public IActionResult Update(int Id, [FromBody]CoursModel model)
         {
             var course = courseRepository.GetById(Id);
             if (course == null)
