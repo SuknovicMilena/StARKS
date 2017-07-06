@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StARKS", "StARKS\StARKS.csproj", "{3EFDF3CE-64D0-4D66-9F6A-D2C542CDDF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StARKS.Common", "StARKS.Common\StARKS.Common.csproj", "{D4D7BB46-9A29-4FF8-AB76-EA9CBD1BDAA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StARKS.Data", "StARKS.Data\StARKS.Data.csproj", "{31F97A9F-D853-4ACD-AC0A-D1B715372C8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EFDF3CE-64D0-4D66-9F6A-D2C542CDDF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFDF3CE-64D0-4D66-9F6A-D2C542CDDF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFDF3CE-64D0-4D66-9F6A-D2C542CDDF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFDF3CE-64D0-4D66-9F6A-D2C542CDDF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D7BB46-9A29-4FF8-AB76-EA9CBD1BDAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D7BB46-9A29-4FF8-AB76-EA9CBD1BDAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D7BB46-9A29-4FF8-AB76-EA9CBD1BDAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D7BB46-9A29-4FF8-AB76-EA9CBD1BDAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F97A9F-D853-4ACD-AC0A-D1B715372C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F97A9F-D853-4ACD-AC0A-D1B715372C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F97A9F-D853-4ACD-AC0A-D1B715372C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F97A9F-D853-4ACD-AC0A-D1B715372C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
