@@ -12,6 +12,7 @@ using StARKS.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Microsoft.EntityFrameworkCore;
+using StARKS.Data.Repositories;
 
 namespace StARKS
 {
@@ -36,6 +37,9 @@ namespace StARKS
             services.AddSingleton(Configuration);
 
             services.AddDbContext<StARKSDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("StARKSDB")));
+
+            services.AddScoped<StudentRepository>();
+
             services.AddMvc()
                    .AddJsonOptions(options =>
                    {
