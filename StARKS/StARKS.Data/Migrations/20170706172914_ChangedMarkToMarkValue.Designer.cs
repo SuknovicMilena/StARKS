@@ -8,9 +8,10 @@ using StARKS.Data;
 namespace StARKS.Data.Migrations
 {
     [DbContext(typeof(StARKSDbContext))]
-    partial class StARKSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170706172914_ChangedMarkToMarkValue")]
+    partial class ChangedMarkToMarkValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

@@ -18,6 +18,7 @@ namespace StARKS.Controllers
             this.courseRepository = courseRepository;
         }
 
+        //TODO: name this route
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -26,31 +27,28 @@ namespace StARKS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]CoursModel model)
+        public IActionResult Add([FromBody]CourseModel model)
         {
             var course = new Course
             {
                 Description = model.Description,
                 Name = model.Name
-
-
             };
             courseRepository.Insert(course);
             courseRepository.Save();
 
             return Ok();
-
-
+            //TODO: convert to CreatedAtRoute
         }
 
+        //TODO: rename Id to id
         [HttpPut("{Id}")]
-        public IActionResult Update(int Id, [FromBody]CoursModel model)
+        public IActionResult Update(int Id, [FromBody]CourseModel model)
         {
             var course = courseRepository.GetById(Id);
             if (course == null)
             {
-                BadRequest("Taj kurs ne postoji");
-
+                return NotFound("Taj kurs ne postoji");
             }
             course.Description = model.Description;
             course.Name = model.Name;
@@ -60,14 +58,14 @@ namespace StARKS.Controllers
             return new NoContentResult();
         }
 
+        //TODO: rename Id to id
         [HttpDelete("{Id}")]
         public IActionResult Delete(int Id)
         {
             var course = courseRepository.GetById(Id);
             if (course == null)
             {
-                BadRequest("Taj kurs ne postoji");
-
+                return NotFound("Taj kurs ne postoji");
             }
             courseRepository.Delete(Id);
             courseRepository.Save();

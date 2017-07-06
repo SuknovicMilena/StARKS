@@ -5,18 +5,18 @@ using System.Text;
 
 namespace StARKS.Data.Entities
 {
-    public class MarksForStudent
+    public class Mark
     {
         public int StudentId { get; set; }
-        public int CoursCode { get; set; }
-        public int Mark { get; set; }
+        public int CourseCode { get; set; }
+        public int MarkValue { get; set; }
 
         [ForeignKey("StudentId")]
         [InverseProperty("Marks")]
         public Student Student { get; set; }
 
-        [ForeignKey("CoursCode")]
+        [ForeignKey("CourseCode")]
         [InverseProperty("Marks")]
-        public Course Cours { get; set; }
+        public Course Course { get; set; }
     }
 }

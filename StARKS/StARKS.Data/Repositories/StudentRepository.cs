@@ -13,6 +13,7 @@ namespace StARKS.Data.Repositories
         public StudentRepository(StARKSDbContext dbContext) : base(dbContext)
         {
         }
+
         public List<StudentModel> GetAllStudentModel()
         {
             var students = dbSet.Select(s => new StudentModel

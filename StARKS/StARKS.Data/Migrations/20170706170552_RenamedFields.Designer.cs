@@ -8,9 +8,10 @@ using StARKS.Data;
 namespace StARKS.Data.Migrations
 {
     [DbContext(typeof(StARKSDbContext))]
-    partial class StARKSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170706170552_RenamedFields")]
+    partial class RenamedFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -30,20 +31,20 @@ namespace StARKS.Data.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("StARKS.Data.Entities.Mark", b =>
+            modelBuilder.Entity("StARKS.Data.Entities.Marks", b =>
                 {
                     b.Property<int>("StudentId");
 
                     b.Property<int>("CourseCode");
 
-                    b.Property<int>("MarkValue");
+                    b.Property<int>("Mark");
 
                     b.HasKey("StudentId", "CourseCode")
                         .HasName("PK_MarksForStudent");
 
                     b.HasIndex("CourseCode");
 
-                    b.ToTable("Mark");
+                    b.ToTable("Marks");
                 });
 
             modelBuilder.Entity("StARKS.Data.Entities.Student", b =>
@@ -70,7 +71,7 @@ namespace StARKS.Data.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("StARKS.Data.Entities.Mark", b =>
+            modelBuilder.Entity("StARKS.Data.Entities.Marks", b =>
                 {
                     b.HasOne("StARKS.Data.Entities.Course", "Course")
                         .WithMany("Marks")

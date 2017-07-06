@@ -15,9 +15,9 @@ namespace StARKS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MarksForStudent>(entity =>
+            modelBuilder.Entity<Mark>(entity =>
             {
-                entity.HasKey(e => new { e.StudentId, e.CoursCode })
+                entity.HasKey(e => new { e.StudentId, e.CourseCode })
                 .HasName("PK_MarksForStudent");
             });
 

@@ -18,6 +18,7 @@ namespace StARKS.Controllers
             this.studentRepository = studentRepository;
         }
 
+        //TODO: name this route
         [HttpGet]
         public IActionResult GetAllStudentModel()
         {
@@ -38,20 +39,23 @@ namespace StARKS.Controllers
                 State = model.State,
                 DateOfBirth = model.DateOfBirth
             };
+
             studentRepository.Insert(student);
             studentRepository.Save();
             return Ok();
-
+            //TODO: convert to CreatedAtRoute
         }
 
+        //TODO: rename Id to id
         [HttpPut("{Id}")]
         public IActionResult Update(int Id, [FromBody]StudentModel model)
         {
             var student = studentRepository.GetById(Id);
             if (student == null)
             {
-                BadRequest("Ne postoji taj student.");
+                return NotFound("Ne postoji taj student.");
             }
+
             student.FirstName = model.FirstName;
             student.LastName = model.LastName;
             student.Address = model.Address;
@@ -64,19 +68,20 @@ namespace StARKS.Controllers
             return new NoContentResult();
         }
 
+        //TODO: rename Id to id
         [HttpDelete("{Id}")]
         public IActionResult Delete(int Id)
         {
             var student = studentRepository.GetById(Id);
             if (student == null)
             {
-                BadRequest("Ne postoji taj student.");
+                return NotFound("Ne postoji taj student.");
             }
+
             studentRepository.Delete(student);
             studentRepository.Save();
             return new NoContentResult();
         }
-
 
     }
 }
