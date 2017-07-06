@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StARKS.Data.Entities
 {
-    public class Cours
+    public class Course
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,7 +14,7 @@ namespace StARKS.Data.Entities
         public String Name { get; set; }
         public String Description { get; set; }
 
-        [InverseProperty("Cours")]
+        [InverseProperty("Course")]
         public List<MarksForStudent> Marks { get; set; }
     }
 }

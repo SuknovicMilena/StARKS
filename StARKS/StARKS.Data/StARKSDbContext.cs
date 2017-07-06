@@ -7,7 +7,7 @@ namespace StARKS.Data
     public class StARKSDbContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
-        public DbSet<Cours> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         public StARKSDbContext(DbContextOptions<StARKSDbContext> options)
             : base(options)
@@ -17,7 +17,7 @@ namespace StARKS.Data
         {
             modelBuilder.Entity<MarksForStudent>(entity =>
             {
-                entity.HasKey(e => new { e.StudentId, e.CoursCode })
+                entity.HasKey(e => new { e.StudentId, e.CourseCode })
                 .HasName("PK_MarksForStudent");
             });
 

@@ -39,6 +39,7 @@ namespace StARKS
             services.AddDbContext<StARKSDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("StARKSDB")));
 
             services.AddScoped<StudentRepository>();
+            services.AddScoped<CourseRepository>();
 
             services.AddMvc()
                    .AddJsonOptions(options =>

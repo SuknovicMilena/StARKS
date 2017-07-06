@@ -8,7 +8,7 @@ namespace StARKS.Data.Entities
     public class MarksForStudent
     {
         public int StudentId { get; set; }
-        public int CoursCode { get; set; }
+        public int CourseCode { get; set; }
         public int Mark { get; set; }
 
         [ForeignKey("StudentId")]
@@ -17,6 +17,6 @@ namespace StARKS.Data.Entities
 
         [ForeignKey("CoursCode")]
         [InverseProperty("Marks")]
-        public Cours Cours { get; set; }
+        public Course Course { get; set; }
     }
 }
