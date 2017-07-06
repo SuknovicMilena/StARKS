@@ -7,3 +7,12 @@ C:\Users\Milija\Documents\Visual Studio 2017\Projects\StARKS\StARKS.Data\obj\Deb
 C:\Users\Milija\Documents\Visual Studio 2017\Projects\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.AssemblyInfo.cs
 C:\Users\Milija\Documents\Visual Studio 2017\Projects\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.dll
 C:\Users\Milija\Documents\Visual Studio 2017\Projects\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.pdb
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\bin\Debug\netcoreapp1.1\StARKS.Data.deps.json
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\bin\Debug\netcoreapp1.1\StARKS.Data.dll
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\bin\Debug\netcoreapp1.1\StARKS.Data.pdb
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\bin\Debug\netcoreapp1.1\StARKS.Common.dll
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\bin\Debug\netcoreapp1.1\StARKS.Common.pdb
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.csprojResolveAssemblyReference.cache
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.AssemblyInfo.cs
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.dll
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Data\obj\Debug\netcoreapp1.1\StARKS.Data.pdb
