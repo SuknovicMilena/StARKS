@@ -46,11 +46,11 @@ namespace StARKS.Controllers
             //TODO: convert to CreatedAtRoute
         }
 
-        //TODO: rename Id to id
-        [HttpPut("{Id}")]
-        public IActionResult Update(int Id, [FromBody]StudentModel model)
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody]StudentModel model)
         {
-            var student = studentRepository.GetById(Id);
+            var student = studentRepository.GetById(id);
             if (student == null)
             {
                 return NotFound("Ne postoji taj student.");
@@ -68,11 +68,11 @@ namespace StARKS.Controllers
             return new NoContentResult();
         }
 
-        //TODO: rename Id to id
-        [HttpDelete("{Id}")]
-        public IActionResult Delete(int Id)
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            var student = studentRepository.GetById(Id);
+            var student = studentRepository.GetById(id);
             if (student == null)
             {
                 return NotFound("Ne postoji taj student.");
