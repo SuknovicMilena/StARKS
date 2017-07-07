@@ -36,6 +36,15 @@ namespace StARKS
         {
             services.AddSingleton(Configuration);
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddDbContext<StARKSDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("StARKSDB")));
 
             services.AddScoped<StudentRepository>();
@@ -60,6 +69,8 @@ namespace StARKS
             app.UseStatusCodePages();
 
             app.UseDeveloperExceptionPage();
+
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
         }

@@ -1,0 +1,92 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "no-empty": false,
+    "no-console": [
+      false
+    ],
+    "align": [
+      false
+    ],
+    "arrow-parens": false,
+    "class-name": true,
+    "curly": false,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "member-access": false,
+    "max-classes-per-file": [
+      false
+    ],
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-internal-module": true,
+    "no-trailing-whitespace": true,
+    "no-var-keyword": true,
+    "no-var-requires": false,
+    "no-string-literal": false,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "object-literal-shorthand": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      false,
+      "allways"
+    ],
+    "prefer-const": false,
+    "trailing-comma": [
+      false,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "max-line-length": [
+      150
+    ],
+    "member-ordering": [
+      false
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "triple-equals": [
+      false
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  }
+}
