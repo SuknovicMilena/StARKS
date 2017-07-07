@@ -10,6 +10,11 @@
           <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Date of birth</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -18,6 +23,12 @@
           <td [innerHtml]="student.id"></td>
           <td [innerHtml]="student.firstName"></td>
           <td [innerHtml]="student.lastName"></td>
+          <td [innerHtml]="student.gender"></td>
+          <td [innerHtml]="student.address"></td>
+          <td [innerHtml]="student.city"></td>
+          <td [innerHtml]="student.state"></td>
+          <td [innerHtml]="student.dateOfBirth"></td>
+
           <td>
             <button class="btn btn-info">Details</button>
             <button class="btn btn-warning" (click)="edit()">Edit</button>
