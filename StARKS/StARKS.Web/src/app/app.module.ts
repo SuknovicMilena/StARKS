@@ -1,16 +1,15 @@
-
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StudentsComponent } from './components/students/students.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { MarksComponent } from './components/marks/marks.component';
 import { StudentService } from './services/student.service';
-import { MarkService } from './services/mark.service';
+import { MarksService } from './services/marks.service';
 import { CourseService } from './services/course.service';
 import { AppRoutingModule } from './app.routing';
 
@@ -26,11 +25,12 @@ import { AppRoutingModule } from './app.routing';
     HeaderComponent,
     FooterComponent,
     StudentsComponent,
-    CoursesComponent
+    CoursesComponent,
+    MarksComponent
   ],
   providers: [
     CourseService,
-    MarkService,
+    MarksService,
     StudentService
   ],
   bootstrap: [AppComponent]
