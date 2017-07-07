@@ -18,12 +18,26 @@ namespace StARKS.Controllers
             this.studentRepository = studentRepository;
         }
 
-        //TODO: name this route
+
         [HttpGet]
         public IActionResult GetAllStudentModel()
         {
             var students = studentRepository.GetAllStudentModel();
             return Ok(students);
+        }
+
+
+        [HttpGet("{studentId}", Name = "GetStudent")]
+        public IActionResult Get(int studentId)
+        {
+            var student = studentRepository.GetById(studentId);
+
+            if (student == null)
+            {
+                return NotFound("Student does not exist.");
+            }
+
+            return Ok(student);
         }
 
         [HttpPost]
@@ -42,8 +56,18 @@ namespace StARKS.Controllers
 
             studentRepository.Insert(student);
             studentRepository.Save();
-            return Ok();
-            //TODO: convert to CreatedAtRoute
+
+            return CreatedAtRoute("GetStudent", new
+            {
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                Address = student.Address,
+                City = student.City,
+                Gender = student.Gender,
+                State = student.State,
+                DateOfBirth = student.DateOfBirth
+
+            }, student);
         }
 
 

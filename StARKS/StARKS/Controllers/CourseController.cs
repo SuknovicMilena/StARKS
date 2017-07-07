@@ -41,7 +41,6 @@ namespace StARKS.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult Add([FromBody]CourseModel model)
         {
@@ -57,7 +56,6 @@ namespace StARKS.Controllers
             //return Ok();
 
         }
-
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]CourseModel model)
