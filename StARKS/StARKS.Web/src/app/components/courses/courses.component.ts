@@ -1,3 +1,4 @@
+import { CourseService } from './../../services/course.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  courses: starks.Course[];
+
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
+    this.courseService.getAll().subscribe((courses: starks.Course[]) => {
+      this.courses = courses;
+    });
   }
 
+  edit() {
+
+  }
 }
