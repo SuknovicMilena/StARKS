@@ -8,15 +8,15 @@ using System.Linq;
 
 namespace StARKS.Data.Repositories
 {
-    public class MarksRepository : BaseRepository<Mark>
+    public class MarksRepository : BaseRepository<Marks>
     {
         public MarksRepository(StARKSDbContext dbContext) : base(dbContext)
         {
         }
 
-        public List<MarkModel> GetAllMarksModel()
+        public List<MarksModel> GetAllMarksModel()
         {
-            var marks = dbSet.Select(m => new MarkModel
+            var marks = dbSet.Select(m => new MarksModel
             {
                 StudentId = m.StudentId,
                 StudentName = m.Student.FirstName + " " + m.Student.LastName,

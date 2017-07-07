@@ -53,7 +53,7 @@ namespace StARKS.Controllers
             var student = studentRepository.GetById(id);
             if (student == null)
             {
-                return NotFound("Ne postoji taj student.");
+                return NotFound("Student does not exist.");
             }
 
             student.FirstName = model.FirstName;
@@ -75,7 +75,7 @@ namespace StARKS.Controllers
             var student = studentRepository.GetById(id);
             if (student == null)
             {
-                return NotFound("Ne postoji taj student.");
+                return NotFound("Student does not exist.");
             }
 
             studentRepository.Delete(student);

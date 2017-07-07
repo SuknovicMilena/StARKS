@@ -8,8 +8,8 @@ using StARKS.Data;
 namespace StARKS.Data.Migrations
 {
     [DbContext(typeof(StARKSDbContext))]
-    [Migration("20170706172914_ChangedMarkToMarkValue")]
-    partial class ChangedMarkToMarkValue
+    [Migration("20170707100158_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace StARKS.Data.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("StARKS.Data.Entities.Mark", b =>
+            modelBuilder.Entity("StARKS.Data.Entities.Marks", b =>
                 {
                     b.Property<int>("StudentId");
 
@@ -44,7 +44,7 @@ namespace StARKS.Data.Migrations
 
                     b.HasIndex("CourseCode");
 
-                    b.ToTable("Mark");
+                    b.ToTable("Marks");
                 });
 
             modelBuilder.Entity("StARKS.Data.Entities.Student", b =>
@@ -71,7 +71,7 @@ namespace StARKS.Data.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("StARKS.Data.Entities.Mark", b =>
+            modelBuilder.Entity("StARKS.Data.Entities.Marks", b =>
                 {
                     b.HasOne("StARKS.Data.Entities.Course", "Course")
                         .WithMany("Marks")

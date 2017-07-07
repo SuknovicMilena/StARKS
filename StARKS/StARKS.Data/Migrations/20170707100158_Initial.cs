@@ -43,24 +43,24 @@ namespace StARKS.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarksForStudent",
+                name: "Marks",
                 columns: table => new
                 {
                     StudentId = table.Column<int>(nullable: false),
-                    CoursCode = table.Column<int>(nullable: false),
-                    Mark = table.Column<int>(nullable: false)
+                    CourseCode = table.Column<int>(nullable: false),
+                    MarkValue = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarksForStudent", x => new { x.StudentId, x.CoursCode });
+                    table.PrimaryKey("PK_MarksForStudent", x => new { x.StudentId, x.CourseCode });
                     table.ForeignKey(
-                        name: "FK_MarksForStudent_Courses_CoursCode",
-                        column: x => x.CoursCode,
+                        name: "FK_Marks_Courses_CourseCode",
+                        column: x => x.CourseCode,
                         principalTable: "Courses",
                         principalColumn: "Code",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MarksForStudent_Students_StudentId",
+                        name: "FK_Marks_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
                         principalColumn: "Id",
@@ -68,15 +68,15 @@ namespace StARKS.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarksForStudent_CoursCode",
-                table: "MarksForStudent",
-                column: "CoursCode");
+                name: "IX_Marks_CourseCode",
+                table: "Marks",
+                column: "CourseCode");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MarksForStudent");
+                name: "Marks");
 
             migrationBuilder.DropTable(
                 name: "Courses");

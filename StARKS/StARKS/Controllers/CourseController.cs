@@ -18,13 +18,29 @@ namespace StARKS.Controllers
             this.courseRepository = courseRepository;
         }
 
-        //TODO: name this route
+
         [HttpGet]
         public IActionResult GetAll()
         {
             var courses = courseRepository.GetAllCourseModel();
             return Ok(courses);
         }
+
+
+        [HttpGet("{courseId}", Name = "GetCourse")]
+        public IActionResult Get(int courseId)
+        {
+            var course = courseRepository.GetById(courseId);
+
+            if (course == null)
+            {
+                return NotFound("Course does not exist.");
+            }
+
+            return Ok(course);
+        }
+
+
 
         [HttpPost]
         public IActionResult Add([FromBody]CourseModel model)
@@ -37,8 +53,9 @@ namespace StARKS.Controllers
             courseRepository.Insert(course);
             courseRepository.Save();
 
-            return Ok();
-            //TODO: convert to CreatedAtRoute
+            return CreatedAtRoute("GetCourse", new { Description = course.Description, Name = course.Name }, course);
+            //return Ok();
+
         }
 
 
@@ -48,7 +65,7 @@ namespace StARKS.Controllers
             var course = courseRepository.GetById(id);
             if (course == null)
             {
-                return NotFound("Taj kurs ne postoji");
+                return NotFound("Course does not exist.");
             }
             course.Description = model.Description;
             course.Name = model.Name;
@@ -64,7 +81,7 @@ namespace StARKS.Controllers
             var course = courseRepository.GetById(id);
             if (course == null)
             {
-                return NotFound("Taj kurs ne postoji");
+                return NotFound("Course does not exist.");
             }
             courseRepository.Delete(id);
             courseRepository.Save();

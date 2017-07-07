@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace StARKS.Data.Entities
 {
-    public class Mark
+    public class Marks
     {
+        [Required]
         public int StudentId { get; set; }
+
+        [Required]
         public int CourseCode { get; set; }
         public int MarkValue { get; set; }
 

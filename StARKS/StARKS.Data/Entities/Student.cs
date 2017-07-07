@@ -18,6 +18,6 @@ namespace StARKS.Data.Entities
         public string Gender { get; set; }
 
         [InverseProperty("Student")]
-        public List<Mark> Marks { get; set; }
+        public List<Marks> Marks { get; set; }
     }
 }

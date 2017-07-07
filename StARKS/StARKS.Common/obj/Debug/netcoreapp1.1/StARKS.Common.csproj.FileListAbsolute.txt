@@ -8,7 +8,7 @@ C:\Users\Milija\Documents\Visual Studio 2017\Projects\StARKS\StARKS.Common\obj\D
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\bin\Debug\netcoreapp1.1\StARKS.Common.deps.json
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\bin\Debug\netcoreapp1.1\StARKS.Common.dll
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\bin\Debug\netcoreapp1.1\StARKS.Common.pdb
-C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\obj\Debug\netcoreapp1.1\StARKS.Common.csprojResolveAssemblyReference.cache
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\obj\Debug\netcoreapp1.1\StARKS.Common.AssemblyInfo.cs
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\obj\Debug\netcoreapp1.1\StARKS.Common.dll
 C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\obj\Debug\netcoreapp1.1\StARKS.Common.pdb
+C:\Users\Milija\Desktop\StARKS\StARKS\StARKS.Common\obj\Debug\netcoreapp1.1\StARKS.Common.csprojResolveAssemblyReference.cache
