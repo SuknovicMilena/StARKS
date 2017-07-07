@@ -1,5 +1,30 @@
-<p>
-  students works!
-</p>
+<div class="page-header">
+  <h1>Students</h1>
+</div>
 
-<div [innerHtml]="students | json"></div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td [innerHtml]="student.id"></td>
+          <td [innerHtml]="student.firstName"></td>
+          <td [innerHtml]="student.lastName"></td>
+          <td>
+            <button class="btn btn-info">Details</button>
+            <button class="btn btn-warning" (click)="edit()">Edit</button>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

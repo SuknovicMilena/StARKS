@@ -18,4 +18,8 @@ export class StudentsComponent implements OnInit {
     });
   }
 
+  edit() {
+
+  }
+
 }
