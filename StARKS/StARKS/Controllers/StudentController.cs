@@ -57,7 +57,7 @@ namespace StARKS.Controllers
             studentRepository.Insert(student);
             studentRepository.Save();
 
-            return CreatedAtRoute("GetStudent", new
+            var modelToReturn = new StudentModel
             {
                 FirstName = student.FirstName,
                 LastName = student.LastName,
@@ -66,8 +66,9 @@ namespace StARKS.Controllers
                 Gender = student.Gender,
                 State = student.State,
                 DateOfBirth = student.DateOfBirth
+            };
 
-            }, student);
+            return CreatedAtRoute("GetStudent", new { studentId = student.Id }, modelToReturn);
         }
 
 

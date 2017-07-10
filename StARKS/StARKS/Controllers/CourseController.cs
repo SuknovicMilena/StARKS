@@ -52,8 +52,8 @@ namespace StARKS.Controllers
             courseRepository.Insert(course);
             courseRepository.Save();
 
-            return CreatedAtRoute("GetCourse", new { Description = course.Description, Name = course.Name }, course);
-            //return Ok();
+            //return CreatedAtRoute("GetCourse", new { Description = course.Description, Name = course.Name }, course);
+            return Ok();
 
         }
 

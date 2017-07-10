@@ -1,0 +1,80 @@
+<div class="page-header">
+  <h1>{{ student.id ? 'Edit' : 'Add' }} Student</h1>
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="firstName">First name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter first name" [(ngModel)]="student.firstName" id="firstName" name="firstName" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="lastName">Last name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter last name" [(ngModel)]="student.lastName" id="lastName" name="lastName" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Gender</label>
+        <div class="col-sm-10">
+          <div class="radio">
+            <label>
+             <input type="radio" name="gender" [value]="'male'" [(ngModel)]="student.gender" />
+             Male
+          </label>
+          </div>
+          <div class="radio">
+            <label>
+             <input type="radio" name="gender" [value]="'female'" [(ngModel)]="student.gender" />
+             Female
+          </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="state">State</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter state" [(ngModel)]="student.state" id="state" name="state" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="city">City</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter city" [(ngModel)]="student.city" id="city" name="city" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="address">Address</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter address" [(ngModel)]="student.address" id="address" name="address" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="dateOfBirth">Date Of Birth</label>
+        <div class="col-sm-10">
+          <input class="form-control" [ngModel]="student.dateOfBirth | date:'yyyy-MM-dd'" type="date" name="dateOfBirth" id="dateOfBirth" (ngModelChange)="student.dateOfBirth = $event" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button *ngIf="!student.id" class="btn btn-info" (click)="add()">Add</button>
+          <button *ngIf="student.id" class="btn btn-warning" (click)="update()">Update</button>
+          <button class="btn btn-info" (click)="back()">Back</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

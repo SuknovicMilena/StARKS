@@ -3,6 +3,10 @@
 </div>
 
 <div class="row">
+
+  <button class="btn btn-info" (click)="add()">Add a course</button>
+  <a [routerLink]="['/students']">Click here to see all students </a>
+
   <div class="col-md-12">
     <table class="table table-hover">
       <thead>
@@ -21,9 +25,10 @@
 
 
           <td>
-            <button class="btn btn-info">Details</button>
+            <button class="btn btn-info" (click)="details()">Details</button>
             <button class="btn btn-warning" (click)="edit()">Edit</button>
             <button class="btn btn-danger">Delete</button>
+
           </td>
         </tr>
       </tbody>

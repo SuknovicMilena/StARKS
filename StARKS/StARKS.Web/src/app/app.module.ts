@@ -1,24 +1,28 @@
+import { StudentComponent } from './components/student/student.component';
+import { CourseComponent } from './components/course/course.component';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { StudentsComponent } from './components/students/students.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { MarksComponent } from './components/marks/marks.component';
-import { StudentService } from './services/student.service';
-import { MarksService } from './services/marks.service';
-import { CourseService } from './services/course.service';
 import { AppRoutingModule } from './app.routing';
+import { CoursesComponent } from './components/courses/courses.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MarksComponent } from './components/marks/marks.component';
+import { StudentsComponent } from './components/students/students.component';
+import { CourseService } from './services/course.service';
+import { MarksService } from './services/marks.service';
+import { StudentService } from './services/student.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule
+
   ],
   declarations: [
     AppComponent,
@@ -26,12 +30,14 @@ import { AppRoutingModule } from './app.routing';
     FooterComponent,
     StudentsComponent,
     CoursesComponent,
-    MarksComponent
+    MarksComponent,
+    CourseComponent,
+    StudentComponent,
   ],
   providers: [
     CourseService,
     MarksService,
-    StudentService
+    StudentService,
   ],
   bootstrap: [AppComponent]
 })

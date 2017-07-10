@@ -7,7 +7,13 @@ interface NodeModule {
 declare namespace starks {
   interface Student {
     id: number;
-
+    firstName: string;
+    lastName: string;
+    gender: string;
+    state: string;
+    city: string;
+    address: string;
+    dateOfBirth: Date;
   }
 
   interface Mark {
@@ -16,8 +22,9 @@ declare namespace starks {
   }
 
   interface Course {
-    id: number;
-
+    id : number;
+    name: string;
+    description: string;
   }
 
 }
