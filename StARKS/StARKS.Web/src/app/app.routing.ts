@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'students/add', component: StudentComponent },
   { path: 'students/edit/:id', component: StudentComponent },
   { path: 'courses/add', component: CourseComponent },
-  { path: 'courses/edit/:id', component: CourseComponent }
+  { path: 'courses/edit/:code', component: CourseComponent }
 ];
 
 @NgModule({

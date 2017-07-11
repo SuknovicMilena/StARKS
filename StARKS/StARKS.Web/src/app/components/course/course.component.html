@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>{{ course.id ? 'Edit' : 'Add' }} Course</h1>
+  <h1>{{ course.code ? 'Edit' : 'Add' }} Course</h1>
 </div>
 
 <div class="row">
@@ -23,8 +23,8 @@
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button *ngIf="!course.id" class="btn btn-info" (click)="add()">Add</button>
-          <button *ngIf="course.id" class="btn btn-warning" (click)="update()">Update</button>
+          <button *ngIf="!course.code" class="btn btn-info" (click)="add()">Add</button>
+          <button *ngIf="course.code" class="btn btn-warning" (click)="update()">Update</button>
           <button class="btn btn-info" (click)="back()">Back</button>
         </div>
       </div>

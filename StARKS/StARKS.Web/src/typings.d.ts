@@ -17,12 +17,14 @@ declare namespace starks {
   }
 
   interface Mark {
-    id: number;
+    studentId: number;
+    courseCode: number,
+    markValue: number
 
   }
 
   interface Course {
-    id : number;
+    code : number;
     name: string;
     description: string;
   }

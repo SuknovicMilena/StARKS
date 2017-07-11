@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+
   courses: starks.Course[];
 
   constructor(private courseService: CourseService, private router: Router) { }
@@ -21,8 +22,18 @@ export class CoursesComponent implements OnInit {
   add() {
     this.router.navigate(['courses/add']);
   }
-  edit() {
 
+  edit(course: starks.Course) {
+    this.router.navigate(['courses/edit', course.code]);
   }
 
+  delete(course: starks.Course) {
+    if (confirm('Are you sure you want to delete this course?')) {
+      this.courseService.delete(course.code).subscribe(() => {
+        alert('Course deleted');
+        this.courses = this.courses.filter((c: starks.Course) => c.code != course.code);
+      });
+
+    }
+  }
 }

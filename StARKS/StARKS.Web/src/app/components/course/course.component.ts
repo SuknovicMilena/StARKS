@@ -14,7 +14,7 @@ export class CourseComponent {
   constructor(private courseService: CourseService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let courseId = + this.route.snapshot.params['id'];
+    let courseId = + this.route.snapshot.params['code'];
     if (courseId) {
       this.courseService.get(courseId).subscribe((course: starks.Course) => {
         this.course = course;
@@ -25,6 +25,12 @@ export class CourseComponent {
   add() {
     this.courseService.add(this.course).subscribe((course: starks.Course) => {
       alert('Course added!');
+      this.back();
+    });
+  }
+  update() {
+    this.courseService.update(this.course).subscribe(() => {
+      alert('Course updated!');
       this.back();
     });
   }
