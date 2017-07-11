@@ -53,7 +53,7 @@ namespace StARKS.Controllers
             courseRepository.Save();
 
             //return CreatedAtRoute("GetCourse", new { Description = course.Description, Name = course.Name }, course);
-            return Ok();
+            return Ok(course);
 
         }
 

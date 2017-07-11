@@ -1,6 +1,6 @@
 import { CourseService } from './../../services/course.service';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'course',
@@ -9,13 +9,23 @@ import { Router } from '@angular/router';
 })
 export class CourseComponent {
 
-  course: starks.Course;
-  courses: starks.Course[];
-  constructor(private courseService: CourseService, private router: Router) { }
+  course: starks.Course = {} as starks.Course;
 
-  saveCourse(): void {
-    this.courseService.saveCourse(this.course).subscribe((course: starks.Course) => {
-      this.router.navigate(['/courses']);
+  constructor(private courseService: CourseService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    let courseId = + this.route.snapshot.params['id'];
+    if (courseId) {
+      this.courseService.get(courseId).subscribe((course: starks.Course) => {
+        this.course = course;
+      });
+    }
+  }
+
+  add() {
+    this.courseService.add(this.course).subscribe((course: starks.Course) => {
+      alert('Course added!');
+      this.back();
     });
   }
 
@@ -23,7 +33,4 @@ export class CourseComponent {
     this.router.navigate(['courses']);
   }
 
-  edit() {
-
-  }
 }

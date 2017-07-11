@@ -1,39 +1,35 @@
 <div class="page-header">
-  <h1> Add a Course</h1>
+  <h1>{{ course.id ? 'Edit' : 'Add' }} Course</h1>
 </div>
 
 <div class="row">
 
   <div class="col-md-12">
 
-    <body>
-
-      <form>
-        <div class="small-12 columns">
-          <label>Name</label>
-          <input type="text" placeholder="Enter name of kurs" id="cName" [(ngModel)]="name" name="name">
-
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="name">Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter name" [(ngModel)]="course.name" id="name" name="name" />
         </div>
+      </div>
 
-        <div class="small-12 columns">
-          <label>Description</label>
-          <input type="text" placeholder="Enter description of course" id="cDescription" [(ngModel)]="description" name="description">
-
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="lastName">Description</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" placeholder="Enter description" [(ngModel)]="course.description" id="description" name="description" />
         </div>
+      </div>
 
-        <div class="small-12 columns">
-          <div class="expanded button-group">
-
-            <button class="btn btn-info" (click)="saveCourse()">Add a course</button>
-            <button class="btn btn-info" (click)="back()">Back</button>
-          </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button *ngIf="!course.id" class="btn btn-info" (click)="add()">Add</button>
+          <button *ngIf="course.id" class="btn btn-warning" (click)="update()">Update</button>
+          <button class="btn btn-info" (click)="back()">Back</button>
         </div>
+      </div>
 
-
-
-
-      </form>
-    </body>
+    </form>
 
   </div>
 </div>

@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  @Output() course: starks.Course;
   courses: starks.Course[];
 
   constructor(private courseService: CourseService, private router: Router) { }
@@ -25,7 +24,5 @@ export class CoursesComponent implements OnInit {
   edit() {
 
   }
-  details() {
-    this.router.navigate(['course/details']);
-  }
+
 }
