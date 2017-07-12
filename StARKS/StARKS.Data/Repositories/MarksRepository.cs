@@ -14,17 +14,30 @@ namespace StARKS.Data.Repositories
         {
         }
 
-        public List<MarksModel> GetAllMarksModel()
+        public List<MarksModel> GetAllMarksModel(int studentId)
         {
-            var marks = dbSet.Select(m => new MarksModel
+            var marks = dbSet.Where(m => m.StudentId == studentId).Select(m => new MarksModel
             {
                 StudentId = m.StudentId,
                 StudentName = m.Student.FirstName + " " + m.Student.LastName,
                 CourseCode = m.CourseCode,
                 CourseName = m.Course.Name,
-                Mark = m.MarkValue
+                MarkValue = m.MarkValue
             }).ToList();
             return marks;
+        }
+
+        public MarksModel GetMarksModel(int studentId, int courseId)
+        {
+            var mark = dbSet.Where(m => m.StudentId == studentId && m.CourseCode == courseId).Select(m => new MarksModel
+            {
+                StudentId = m.StudentId,
+                StudentName = m.Student.FirstName + " " + m.Student.LastName,
+                CourseCode = m.CourseCode,
+                CourseName = m.Course.Name,
+                MarkValue = m.MarkValue
+            }).FirstOrDefault();
+            return mark;
         }
     }
 }

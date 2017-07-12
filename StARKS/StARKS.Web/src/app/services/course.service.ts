@@ -15,23 +15,39 @@ export class CourseService {
   get(code: number): Observable<starks.Course> {
     return this.http
       .get('http://localhost:61845/courses/' + code)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json() as starks.Course);
   }
 
   add(course: starks.Course): Observable<starks.Course> {
     return this.http
       .post('http://localhost:61845/courses', course)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json() as starks.Course);
   }
   update(course: starks.Course): Observable<void> {
     return this.http
       .put('http://localhost:61845/courses/' + course.code, course)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json());
   }
 
   delete(code: number): Observable<void> {
     return this.http
       .delete('http://localhost:61845/courses/' + code)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json());
   }
 }

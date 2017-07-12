@@ -20,7 +20,8 @@ declare namespace starks {
     studentId: number;
     courseCode: number,
     markValue: number
-
+    courseName: string;
+    studentName: string;
   }
 
   interface Course {

@@ -7,33 +7,53 @@ export class MarksService {
 
   constructor(private http: Http) { }
 
-  // [HttpGet("{courseId}/students/{studentId}", Name = "GetMark")]
-
-  getAll(): Observable<any> {
+  getAll(studentId: number): Observable<any> {
     return this.http
-      .get('http://localhost:61845/marks')
+      .get(`http://localhost:61845/students/${studentId}/marks`)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json() as starks.Mark[]);
   }
+
   get(studentId: number, courseCode: number): Observable<starks.Mark> {
     return this.http
-      .get('http://localhost:61845/marks/' + courseCode + '/students/' + studentId)
+      .get(`http://localhost:61845/students/${studentId}/marks/courses/${courseCode}`)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json() as starks.Mark);
   }
 
-  add(course: starks.Course): Observable<starks.Course> {
+  add(mark: starks.Mark): Observable<starks.Mark> {
     return this.http
-      .post('http://localhost:61845/courses', course)
-      .map(response => response.json() as starks.Course);
+      .post(`http://localhost:61845/students/${mark.studentId}/marks/courses/${mark.courseCode}`, mark)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
+      .map(response => response.json() as starks.Mark);
   }
-  update(course: starks.Course): Observable<void> {
+
+  update(mark: starks.Mark): Observable<void> {
     return this.http
-      .put('http://localhost:61845/courses/' + course.code, course)
+      .put(`http://localhost:61845/students/${mark.studentId}/marks/courses/${mark.courseCode}`, mark)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json());
   }
 
-  delete(code: number): Observable<void> {
+  delete(studentId: number, courseCode: number): Observable<void> {
     return this.http
-      .delete('http://localhost:61845/courses/' + code)
+      .delete(`http://localhost:61845/students/${studentId}/marks/courses/${courseCode}`)
+      .catch((response: Response) => {
+        alert(response.text());
+        return Observable.throw(response);
+      })
       .map(response => response.json());
   }
 

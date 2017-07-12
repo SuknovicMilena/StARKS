@@ -32,6 +32,7 @@
           <td [innerHtml]="student.dateOfBirth | date: 'MM/dd/yyyy'"></td>
 
           <td>
+            <button class="btn btn-info" (click)="goToMarks(student)">Marks</button>
             <button class="btn btn-warning" (click)="edit(student)">Edit</button>
             <button class="btn btn-danger" (click)="delete(student)">Delete</button>
           </td>

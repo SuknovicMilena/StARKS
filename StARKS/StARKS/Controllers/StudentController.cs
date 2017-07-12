@@ -13,11 +13,12 @@ namespace StARKS.Controllers
     public class StudentController : Controller
     {
         private StudentRepository studentRepository;
-        public StudentController(StudentRepository studentRepository)
+        private CourseRepository courseRepository;
+        public StudentController(StudentRepository studentRepository, CourseRepository courseRepository)
         {
             this.studentRepository = studentRepository;
+            this.courseRepository = courseRepository;
         }
-
 
         [HttpGet]
         public IActionResult GetAllStudentModel()
@@ -25,7 +26,6 @@ namespace StARKS.Controllers
             var students = studentRepository.GetAllStudentModel();
             return Ok(students);
         }
-
 
         [HttpGet("{studentId}", Name = "GetStudent")]
         public IActionResult Get(int studentId)
@@ -39,6 +39,22 @@ namespace StARKS.Controllers
 
             return Ok(student);
         }
+
+        [HttpGet("{studentId}/courses")]
+        public IActionResult GetAvailableCourses(int studentId)
+        {
+            var student = studentRepository.GetById(studentId);
+
+            if (student == null)
+            {
+                return NotFound("Student does not exist.");
+            }
+
+            var courses = courseRepository.GetAvailableCourses(studentId);
+
+            return Ok(courses);
+        }
+
 
         [HttpPost]
         public IActionResult Add([FromBody]StudentModel model)

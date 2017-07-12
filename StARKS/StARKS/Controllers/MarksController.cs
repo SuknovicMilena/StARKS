@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace StARKS.Controllers
 {
-    [Route("marks")]
+    [Route("students/{studentId}/marks")]
     public class MarksController : Controller
     {
         private MarksRepository marksRepository;
@@ -23,14 +23,14 @@ namespace StARKS.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll(int studentId)
         {
-            var marks = marksRepository.GetAllMarksModel();
+            var marks = marksRepository.GetAllMarksModel(studentId);
             return Ok(marks);
         }
 
-        [HttpGet("{courseId}/students/{studentId}", Name = "GetMark")]
-        public IActionResult Get(int courseId, int studentId)
+        [HttpGet("courses/{courseId}", Name = "GetMark")]
+        public IActionResult Get(int studentId, int courseId)
         {
             var student = studentRepository.GetById(studentId);
 
@@ -46,7 +46,7 @@ namespace StARKS.Controllers
                 return NotFound("Course does not exist.");
             }
 
-            var mark = marksRepository.Find(m => m.StudentId == studentId && m.CourseCode == courseId).FirstOrDefault();
+            var mark = marksRepository.GetMarksModel(studentId, courseId);
 
             if (mark == null)
             {
@@ -56,10 +56,10 @@ namespace StARKS.Controllers
             return Ok(mark);
         }
 
-        [HttpPost]
-        public IActionResult Add([FromBody]MarksModel model)
+        [HttpPost("courses/{courseId}")]
+        public IActionResult Add(int studentId, int courseId, [FromBody]MarksModel model)
         {
-            var student = studentRepository.GetById(model.StudentId);
+            var student = studentRepository.GetById(studentId);
 
             if (student == null)
             {
@@ -80,41 +80,50 @@ namespace StARKS.Controllers
                 return BadRequest("Student already has that mark entered.");
             }
 
+            if (model.MarkValue < 6 || model.MarkValue > 10)
+            {
+                return BadRequest("Invalid mark. Allowed values: 6 - 10");
+            }
+
             var mark = new Marks
             {
                 StudentId = model.StudentId,
                 CourseCode = model.CourseCode,
-                MarkValue = model.Mark
+                MarkValue = model.MarkValue
             };
 
             marksRepository.Insert(mark);
             marksRepository.Save();
 
             return CreatedAtRoute("GetMark", new { studentId = mark.StudentId, courseId = mark.CourseCode }, mark);
-            //return Ok(mark);
         }
 
-        [HttpPut("{courseId}/students/{studentId}")]
-        public IActionResult Update(int courseId, int studentId, [FromBody]MarksModel model)
+        [HttpPut("courses/{courseId}")]
+        public IActionResult Update(int studentId, int courseId, [FromBody]MarksModel model)
         {
-            var mark = marksRepository.GetById(courseId, studentId);
+            var mark = marksRepository.GetById(studentId, courseId);
 
             if (mark == null)
             {
                 return NotFound("Mark does not exist for this student.");
             }
 
-            mark.MarkValue = model.Mark;
+            if (model.MarkValue < 6 || model.MarkValue > 10)
+            {
+                return BadRequest("Invalid mark. Allowed values: 6 - 10");
+            }
+
+            mark.MarkValue = model.MarkValue;
 
             marksRepository.Save();
 
             return new NoContentResult();
         }
 
-        [HttpDelete("{courseId}/students/{studentId}")]
-        public IActionResult Delete(int courseId, int studentId)
+        [HttpDelete("courses/{courseId}")]
+        public IActionResult Delete(int studentId, int courseId)
         {
-            var mark = marksRepository.GetById(courseId, studentId);
+            var mark = marksRepository.GetById(studentId, courseId);
             if (mark == null)
             {
                 return NotFound("Mark does not exist for this student.");

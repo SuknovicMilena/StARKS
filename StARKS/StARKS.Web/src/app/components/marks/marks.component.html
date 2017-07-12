@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Marks</h1>
+  <h1>Marks for {{student ? student.firstName + ' ' + student.lastName : ''}}</h1>
 </div>
 
 <div class="row">
@@ -8,7 +8,7 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Student Name</th>
+          <th>Course code</th>
           <th>Course name</th>
           <th>Mark</th>
           <th>Actions</th>
@@ -16,13 +16,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let mark of marks">
-          <td [innerHtml]="mark.studentName"></td>
+          <td [innerHtml]="mark.courseCode"></td>
           <td [innerHtml]="mark.courseName"></td>
-          <td [innerHtml]="mark.mark"></td>
+          <td [innerHtml]="mark.markValue"></td>
 
           <td>
-            <button class="btn btn-warning" (click)="edit()">Edit</button>
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-warning" (click)="edit(mark)">Edit</button>
+            <button class="btn btn-danger" (click)="delete(mark)">Delete</button>
           </td>
         </tr>
       </tbody>

@@ -30,7 +30,7 @@ namespace StARKS.Controllers
         [HttpGet("{courseId}", Name = "GetCourse")]
         public IActionResult Get(int courseId)
         {
-            var course = courseRepository.GetById(courseId);
+            var course = courseRepository.GetCourseModel(courseId);
 
             if (course == null)
             {
@@ -39,7 +39,6 @@ namespace StARKS.Controllers
 
             return Ok(course);
         }
-
 
         [HttpPost]
         public IActionResult Add([FromBody]CourseModel model)
@@ -52,8 +51,15 @@ namespace StARKS.Controllers
             courseRepository.Insert(course);
             courseRepository.Save();
 
-            //return CreatedAtRoute("GetCourse", new { Description = course.Description, Name = course.Name }, course);
-            return Ok(course);
+            var modelToReturn = new CourseModel
+            {
+                Description = course.Description,
+                Name = course.Description
+
+            };
+
+            return CreatedAtRoute("GetCourse", new { courseCode = course.Code }, modelToReturn);
+
 
         }
 

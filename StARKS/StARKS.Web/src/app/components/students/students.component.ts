@@ -27,6 +27,10 @@ export class StudentsComponent implements OnInit {
     this.router.navigate(['students/edit', student.id]);
   }
 
+  goToMarks(student: starks.Student) {
+    this.router.navigate(['students', student.id, 'marks']);
+  }
+
   delete(student: starks.Student) {
     if (confirm('Are you sure you want to delete this student?')) {
       this.studentService.delete(student.id).subscribe(() => {

@@ -10,6 +10,6 @@ namespace StARKS.Common.Models
         public string StudentName { get; set; }
         public int CourseCode { get; set; }
         public string CourseName { get; set; }
-        public int Mark { get; set; }
+        public int MarkValue { get; set; }
     }
 }
