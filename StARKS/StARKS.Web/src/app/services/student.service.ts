@@ -9,7 +9,7 @@ export class StudentService {
 
   getAll(): Observable<starks.Student[]> {
     return this.http
-      .get('http://localhost:61845/students')
+      .get(`http://localhost:61845/students`)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -19,7 +19,7 @@ export class StudentService {
 
   get(id: number): Observable<starks.Student> {
     return this.http
-      .get('http://localhost:61845/students/' + id)
+      .get(`http://localhost:61845/students/${id}`)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -43,7 +43,7 @@ export class StudentService {
 
   add(student: starks.Student): Observable<starks.Student> {
     return this.http
-      .post('http://localhost:61845/students', student)
+      .post(`http://localhost:61845/students`, student)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -53,7 +53,7 @@ export class StudentService {
 
   update(student: starks.Student): Observable<void> {
     return this.http
-      .put('http://localhost:61845/students/' + student.id, student)
+      .put(`http://localhost:61845/students/${student.id}`, student)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -63,7 +63,7 @@ export class StudentService {
 
   delete(id: number): Observable<void> {
     return this.http
-      .delete('http://localhost:61845/students/' + id)
+      .delete(`http://localhost:61845/students/${id}`)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);

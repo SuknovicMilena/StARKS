@@ -11,10 +11,11 @@ export class CourseService {
   getAll(): Observable<starks.Course[]> {
     return this.http.get('http://localhost:61845/courses').map(response => response.json() as starks.Course[]);
   }
+  // http://localhost:61845/students/${studentId}/marks
 
   get(code: number): Observable<starks.Course> {
     return this.http
-      .get('http://localhost:61845/courses/' + code)
+      .get(`http://localhost:61845/courses/${code}`)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -24,16 +25,17 @@ export class CourseService {
 
   add(course: starks.Course): Observable<starks.Course> {
     return this.http
-      .post('http://localhost:61845/courses', course)
+      .post(`http://localhost:61845/courses`, course)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
       })
       .map(response => response.json() as starks.Course);
   }
+
   update(course: starks.Course): Observable<void> {
     return this.http
-      .put('http://localhost:61845/courses/' + course.code, course)
+      .put(`http://localhost:61845/courses/${course.code}`, course)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
@@ -43,7 +45,7 @@ export class CourseService {
 
   delete(code: number): Observable<void> {
     return this.http
-      .delete('http://localhost:61845/courses/' + code)
+      .delete(`http://localhost:61845/courses/${code}`)
       .catch((response: Response) => {
         alert(response.text());
         return Observable.throw(response);
